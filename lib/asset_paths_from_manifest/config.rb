@@ -14,10 +14,10 @@ module AssetPathsFromManifest
   end
 
   class Config
-    include ActiveSupport::Configurable
+    attr_accessor :manifest_json_path
 
-    config_accessor :manifest_json_path do
-      Rails.root.join('public', 'assets', 'manifest.json')
+    def initialize
+      @manifest_json_path = Rails.root.join('public', 'assets', 'manifest.json')
     end
   end
 end
