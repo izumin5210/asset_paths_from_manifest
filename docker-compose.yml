@@ -5,8 +5,13 @@ services:
     build:
       context: .
     volumes:
+    - ./bin:/app/bin
+    - ./lib:/app/lib
+    - ./spec:/app/spec
     - ./Gemfile:/app/Gemfile
     - ./Gemfile.lock:/app/Gemfile.lock
+    - ./Rakefile:/app/Rakefile
+    - ./asset_paths_from_manifest.gemspec:/app/asset_paths_from_manifest.gemspec
     - bundle_install:/app/vendor/bundle
     - bundle:/app/.bundle
     tty: true
