@@ -12,6 +12,7 @@ services:
     - ./Gemfile.lock:/app/Gemfile.lock
     - ./Rakefile:/app/Rakefile
     - ./asset_paths_from_manifest.gemspec:/app/asset_paths_from_manifest.gemspec
+    - ./.rubocop.yml:/app/.rubocop.yml
     - bundle_install:/app/vendor/bundle
     - bundle:/app/.bundle
     tty: true
