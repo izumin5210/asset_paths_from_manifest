@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+  ruby:
+    build:
+      context: .
+    volumes:
+    - ./Gemfile:/app/Gemfile
+    - ./Gemfile.lock:/app/Gemfile.lock
+    - bundle_install:/app/vendor/bundle
+    - bundle:/app/.bundle
+    tty: true
+    stdin_open: true
+
+volumes:
+  bundle_install:
+    driver: local
+  bundle:
+    driver: local
