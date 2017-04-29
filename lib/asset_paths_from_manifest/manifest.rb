@@ -14,14 +14,15 @@ module AssetPathsFromManifest
 
     def initialize(json_path)
       @json_path = json_path
-      @data = load
+      load
     end
 
     def load
-      JSON.parse(File.read(@json_path))
+      @data = JSON.parse(File.read(@json_path))
     end
 
     def lookup(name)
+      load if Rails.env.development?
       @data[name]
     end
   end
