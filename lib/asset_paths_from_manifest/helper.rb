@@ -11,13 +11,13 @@ module AssetPathsFromManifest
     end
 
     def stylesheet_link_tag_from_manifest(name, **options)
-      javascript_include_tag(lookup(name, type: :javascript), **options)
+      stylesheet_link_tag(lookup(name, type: :stylesheet), **options)
     end
 
     private
 
     def lookup(name, type: nil)
-      name_with_extname = compute_asset_extname(name, type: type)
+      name_with_extname = "#{name}#{compute_asset_extname(name, type: type)}"
       AssetPathsFromManifest.manifest.lookup(name_with_extname)
     end
   end
