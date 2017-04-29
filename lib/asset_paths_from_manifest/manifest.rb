@@ -8,11 +8,11 @@ module AssetPathsFromManifest
       end
 
       def file_path
-        AssetPathsFromManifest::Config.manifest_json_path
+        AssetPathsFromManifest.configuration.manifest_json_path
       end
     end
 
-    def initializer(json_path)
+    def initialize(json_path)
       @json_path = json_path
       @data = load
     end

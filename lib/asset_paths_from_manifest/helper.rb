@@ -17,12 +17,8 @@ module AssetPathsFromManifest
     private
 
     def lookup(name, type: nil)
-      name_with_extname = compute_asset_extname(name, type)
-      manifest.lookup(name_with_extname)
-    end
-
-    def manifest
-      AssetPathsFromManifest.manifest
+      name_with_extname = compute_asset_extname(name, type: type)
+      AssetPathsFromManifest.manifest.lookup(name_with_extname)
     end
   end
 end

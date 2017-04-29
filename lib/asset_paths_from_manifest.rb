@@ -1,10 +1,12 @@
 require "asset_paths_from_manifest/version"
 
 module AssetPathsFromManifest
-  attr_reader :manifest
+  class << self
+    attr_reader :manifest
 
-  def self.bootstrap
-    @manifest = Manifest.load
+    def bootstrap
+      @manifest = Manifest.load
+    end
   end
 end
 
