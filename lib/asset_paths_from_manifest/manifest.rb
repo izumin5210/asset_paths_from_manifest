@@ -18,7 +18,7 @@ module AssetPathsFromManifest
     end
 
     def load
-      @data = JSON.parse(File.read(@json_path))
+      @data = File.exist?(@json_path) ? JSON.parse(File.read(@json_path)) : {}.freeze
     end
 
     def lookup(name)
