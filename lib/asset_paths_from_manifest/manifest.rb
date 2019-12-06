@@ -23,7 +23,11 @@ module AssetPathsFromManifest
 
     def lookup(name)
       load if Rails.env.development?
-      @data[name]
+      if @data['files']
+        @data['files'][name]
+      else
+        @data[name]
+      end
     end
   end
 end
